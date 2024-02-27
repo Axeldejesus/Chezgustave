@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import Example from './pages/Example/Example';
-import { NavBar } from './pages/Client/navBar';
-import { Footer } from './pages/Client/footer';
-import { Produit } from './pages/Client/produit';
-import { Profil } from './pages/Client/profil';
-import { Recherche } from './pages/Client/recherche';
-import { Accueil } from './pages/Client/accueil';
+import { NavBar } from './pages/navBar';
+import { Footer } from './pages/footer';
+import { Produit } from './pages/produit';
+import { Profil } from './pages/profil';
+import { Recherche } from './pages/recherche';
+import { Accueil } from './pages/accueil';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
