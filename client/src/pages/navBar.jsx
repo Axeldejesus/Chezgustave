@@ -30,9 +30,9 @@ export const NavBar=()=>{
         <nav className={style.nav}>
             <img className={style.img} src='./public/logo.png' alt='log_chez_gustave'/>
             
-            <div class={style.bouton}>
-                <button class={style.connect}>Se Connecter</button>
-                <button class={style.recherche}>Rechercher</button>            
+            <div className={style.bouton}>
+                <button className={style.connect}>Se Connecter</button>
+                <button className={style.recherche}>Rechercher</button>            
             </div>
 
             <div className={style.menu} onClick={toggleMenu} ref={menuRef}>
