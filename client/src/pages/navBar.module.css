@@ -61,6 +61,7 @@ img{
     background-color: var(--var-color-yellow);
     border-radius: 50%;
     display: flex;
+    content:"\2630";
     justify-content: center;
     align-items: center;
     cursor: pointer;

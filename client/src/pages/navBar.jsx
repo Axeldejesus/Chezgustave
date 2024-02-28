@@ -36,7 +36,7 @@ export const NavBar=()=>{
             </div>
 
             <div className={style.menu} onClick={toggleMenu} ref={menuRef}>
-                <div className={style.menuBurgerIcon}>Menu</div>
+                <div className={style.menuBurgerIcon}>&#x2630;</div>
             </div>
 
             {menuVisible && (
