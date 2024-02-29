@@ -1,0 +1,50 @@
+.entete{
+    background-color: var(--var-color-gray);
+    flex-direction: column;
+    margin-bottom: 5vw;
+}
+
+h1{
+    text-align: center;
+}
+
+.img-container {
+    justify-content: center;
+    margin-bottom: 5vw;
+}
+
+.img{
+    display: block;
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 50px;
+    margin:auto;
+}
+
+.localisation{
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5vw;
+}
+
+.entete, .img-container, .localisation{
+    display: flex;
+}
+
+.imgVille{
+    background-color: var(--var-color-gray);
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width: 700px){
+    .img{
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 10px;
+    }
+
+    .localisation{
+        flex-direction: column;
+    }
+}
