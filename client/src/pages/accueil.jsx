@@ -15,22 +15,22 @@ export const Accueil=()=>{
             <span>Pourqui pas ici</span>
             <section className={style.localisation}>
                 <div className={style.ville}>
-                    <img className={style.imgVille} src="./Image/Paris.jpeg" alt="Paris"/>
+                    <img className={style.imgVille} src="/Image/Paris.jpeg" alt="Paris"/>
                     <h3 className={style.h3}>Paris</h3>
                 </div>
 
                 <div className={style.ville}>
-                    <img className={style.imgVille} src="./Image/Marseille.jpeg" alt="Marseille"/>
+                    <img className={style.imgVille} src="/Image/Marseille.jpeg" alt="Marseille"/>
                     <h3 className={style.h3}>Marseille</h3>
                 </div>
 
                 <div className={style.ville}>
-                    <img className={style.imgVille} src="./Image/Bordeaux.jpeg" alt="Bordeaux"/>
+                    <img className={style.imgVille} src="/Image/Bordeaux.jpeg" alt="Bordeaux"/>
                     <h3 className={style.h3}>Bordeaux</h3>
                 </div>
 
                 <div className={style.ville}>
-                    <img className={style.imgVille} src="./Image/Lille" alt="Lille"/>
+                    <img className={style.imgVille} src="/Image/Lille" alt="Lille"/>
                     <h3 className={style.h3}>Lille</h3>
                 </div>
             </section>
