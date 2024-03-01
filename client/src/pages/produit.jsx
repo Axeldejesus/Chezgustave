@@ -3,12 +3,17 @@ import style from './produit.module.css';
 
 export const Produit = () => {
   return (
-    <header className={style.header}>
-      <h1>Bienvenue sur notre site de produits</h1>
-      <nav>
-       <img src='./public/logo.png' alt='log_chez_gustave'></img>
-       <div className='bouttou'></div>
-      </nav>
-    </header>
+    <div className={style.produitContainer}>
+      <div className={style.texteEtBouton}>
+        <div className={style.texte}>
+          <h1>Belle maison sur la côte Saint-Malo, Bretagne france </h1>
+          <textarea placeholder="Ceci est une superbe zone de texte pour descriptifs de l'annonce et tout."></textarea>
+        </div>
+        <button className="button">Réserver un séjour</button>
+      </div>
+      <div className={style.imageContainer}>
+        <div className={style.placeholder}></div>
+      </div>
+    </div>
   );
 };
