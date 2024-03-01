@@ -10,9 +10,12 @@ export const Accueil=()=>{
                     <img className={style.img} src="./public/logo.png" alt="chez Gustave" />
                 </div>
             </section>
+
             <Recherche/>
+
             <h2 className={style.h2}>Voyagez en france</h2>
             <span>Pourqui pas ici</span>
+
             <section className={style.localisation}>
                 <div className={style.ville}>
                     <img className={style.imgVille} src="/Image/Paris.jpeg" alt="Paris"/>
@@ -32,6 +35,38 @@ export const Accueil=()=>{
                 <div className={style.ville}>
                     <img className={style.imgVille} src="/Image/Lille" alt="Lille"/>
                     <h3 className={style.h3}>Lille</h3>
+                </div>
+            </section>
+
+            <h2 className={style.h2}>Laissez vous tenter par nos coups de cœurs</h2>
+            <span>Nos location les mieux notés</span>
+
+            <section className={style.coupDeCoeur}>
+                <div className={style.annonce}>
+                    <div className={style.annonceContent}>
+                        <span>Photo Annonce</span>
+                    </div>
+                    <div className={style.annonceDescriptif}>
+                        <span>Voire Descriptif</span>
+                    </div>
+                </div>
+
+                <div className={style.annonce}>
+                    <div className={style.annonceContent}>
+                        <span>Photo Annonce</span>
+                    </div>
+                    <div className={style.annonceDescriptif}>
+                        <span>Voire Descriptif</span>
+                    </div>
+                </div>
+
+                <div className={style.annonce}>
+                    <div className={style.annonceContent}>
+                        <span>Photo Annonce</span>
+                    </div>
+                    <div className={style.annonceDescriptif}>
+                        <span>Voire Descriptif</span>
+                    </div>
                 </div>
             </section>
         </>
