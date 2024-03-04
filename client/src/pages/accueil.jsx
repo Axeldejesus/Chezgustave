@@ -1,5 +1,5 @@
 import style from './accueil.module.css';
-import { Recherche } from './formulaires/recherche';
+import { FormulaireRecherche } from './formulaires/formulaireRecherche';
 
 export const Accueil=()=>{
     return(
@@ -11,7 +11,7 @@ export const Accueil=()=>{
                 </div>
             </section>
 
-            <Recherche/>
+            <FormulaireRecherche/>
 
             <h2 className={style.h2}>Voyagez en france</h2>
             <span>Pourqui pas ici</span>

@@ -1,6 +1,6 @@
-import style from './recherche.module.css';
+import style from './formulaireRecherche.module.css';
 
-export const Recherche=()=>{
+export const FormulaireRecherche=()=>{
 
     return(
         <form className={style.from} action="" method="get">
