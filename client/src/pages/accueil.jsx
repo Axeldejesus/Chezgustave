@@ -1,5 +1,5 @@
 import style from './accueil.module.css';
-import { FormulaireRecherche } from './formulaires/recherche';
+import { FormulaireRecherche } from './formulaires/formulaireRecherche';
 
 export const Accueil=()=>{
     return(
