@@ -1,0 +1,8 @@
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+.critere{
+    flex-direction: column;
+}
