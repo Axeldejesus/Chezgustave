@@ -75,7 +75,7 @@ export const Profil = () => {
                             <br/>
                         </div>
                         <div className={style.formRow}>
-                            <input className={style.submitButton} type="submit" value="Soumettre" />
+                            <input className={style.submitButton} type="submit" value="Confirmer" />
                         </div>
                     </div>
                 </div>
