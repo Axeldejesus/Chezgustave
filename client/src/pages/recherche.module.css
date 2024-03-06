@@ -1,5 +1,4 @@
 .main {
-    flex-direction: row;
     justify-content: space-around;
 }
 
@@ -9,7 +8,6 @@
 }
 
 .contenueResult {
-    flex-direction: row;
     overflow: hidden;
     height: 150px;
     width: 300px;
@@ -17,6 +15,11 @@
 
 .contenueResult > * {
     flex: 1;
+}
+
+.main, 
+.contenueResult{
+    flex-direction: row;
 }
 
 .critere, 
