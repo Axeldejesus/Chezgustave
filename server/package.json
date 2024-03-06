@@ -4,14 +4,19 @@
     "version": "0.0.0",
     "main": "src/index.js",
     "scripts": {
-        "start": "nodemon -L src/index.js",
+        "start": "npm i && nodemon -L src/index.js",
         "test": "jest"
     },
     "dependencies": {
+        "bcrypt": "^5.1.1",
+        "cloudinary": "^2.0.1",
+        "dotenv": "^16.4.5",
         "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.2",
         "pg": "^8.11.3",
         "pg-hstore": "^2.3.4",
-        "sequelize": "^6.37.0"
+        "router": "^1.3.8",
+        "sequelize": "^6.37.1"
     },
     "devDependencies": {
         "jest": "^29.7.0",

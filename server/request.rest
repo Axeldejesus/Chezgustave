@@ -1,0 +1,129 @@
+@host = http://localhost:3630
+
+### ADMIN | CRÉATION D'UN UTILISATEUR
+POST {{host}}/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5MTI0NDA5LCJleHAiOjE3MDkyMTA4MDl9.y2dfAs2NCzOXHBWMe-mvYP8F4vol2jA8pJUuINPMYXU
+Content-Type: application/json
+
+{ 
+  "email": "autre.user@gmail.com",
+  "name": "Autre User",
+  "tel": "33644279001",
+  "password": "poulet",
+  "is_admin": false
+}
+
+### SE CONNECTER
+POST {{host}}/login
+Authorization: Bearer
+Content-Type: application/json
+
+{
+  "name": "Nawor de Nidraj",
+  "password": "girafe"
+}
+
+### SE DÉCONNECTER
+GET {{host}}/logout
+
+### ADMIN | RÉCUPÉRATION DES UTILISATEURS
+GET {{host}}/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlzX2FkbWluIjpmYWxzZSwibmFtZSI6IlJhbmRvbSBVc2VyIiwiaWF0IjoxNzA5MTE1Nzk4LCJleHAiOjE3MDkyMDIxOTh9.De7gLi8aAnFQn-QAAu7vp9B1K7NYf9BEbhWfdrTQBME
+Content-Type: application/json
+
+### ADMIN | RÉCUPÉRATION D'UN UTILISATEUR
+GET {{host}}/users/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5MTE1OTc4LCJleHAiOjE3MDkyMDIzNzh9.SBS4IZ6cVViNYH9csFNbxEcOFoAfKhP5IKPRYXsxQw8
+Content-Type: application/json
+
+### ADMIN | MODIFICATION D'UN UTILISATEUR
+PUT {{host}}/users/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5Mjg1OTI1LCJleHAiOjE3MDkzNzIzMjV9.gSg6bmfaykB2h287oHKLvRpf-ei41mPIZEOIbEvuLSs
+Content-Type: application/json
+
+{
+  "name": "La Personne"
+}
+
+### ADMIN | SUPPRESSION D'UN UTILISATEUR
+DELETE {{host}}/users/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5MTI0NDA5LCJleHAiOjE3MDkyMTA4MDl9.y2dfAs2NCzOXHBWMe-mvYP8F4vol2jA8pJUuINPMYXU
+Content-Type: application/json
+
+### ADMIN | CRÉATION D'UN ÉQUIPEMENT
+POST {{host}}/equipements
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5Mjg1OTI1LCJleHAiOjE3MDkzNzIzMjV9.gSg6bmfaykB2h287oHKLvRpf-ei41mPIZEOIbEvuLSs
+Content-Type: application/json
+
+{
+  "name": "Meuble normand"
+}
+
+### ADMIN | RÉCUPÉRATION DE TOUS LES ÉQUIPEMENTS
+GET {{host}}/equipements
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5Mjg1OTI1LCJleHAiOjE3MDkzNzIzMjV9.gSg6bmfaykB2h287oHKLvRpf-ei41mPIZEOIbEvuLSs
+Content-Type: application/json
+
+### ADMIN | RÉCUPÉRATION D'UN ÉQUIPEMENT
+GET {{host}}/equipements/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5Mjg1OTI1LCJleHAiOjE3MDkzNzIzMjV9.gSg6bmfaykB2h287oHKLvRpf-ei41mPIZEOIbEvuLSs
+Content-Type: application/json
+
+### ADMIN | MODIFICATION D'UN ÉQUIPEMENT
+PUT {{host}}/equipements/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5Mjg1OTI1LCJleHAiOjE3MDkzNzIzMjV9.gSg6bmfaykB2h287oHKLvRpf-ei41mPIZEOIbEvuLSs
+Content-Type: application/json
+
+{
+  "name": "Lampe de chevet"
+}
+
+### ADMIN | SUPPRESSION D'UN ÉQUIPEMENT
+DELETE {{host}}/equipements/0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5Mjg1OTI1LCJleHAiOjE3MDkzNzIzMjV9.gSg6bmfaykB2h287oHKLvRpf-ei41mPIZEOIbEvuLSs
+Content-Type: application/json
+
+### ADMIN | CRÉATION D'UN LOGEMENT
+POST {{host}}/logements
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5NzE5MTU0LCJleHAiOjE3MDk4MDU1NTR9.gHQgKWrkBhG8SwkdlDQfFtdjWaoId5MCmsR4J-RJs6Y
+Content-Type: application/json
+
+{
+  "image": ["image1.jpg", "image2.jpg"],
+  "secteur": "Dinard",
+  "description": "Maison en centre-ville",
+  "tarif_bas": 400.48,
+  "tarif_moyen": 682.31,
+  "tarif_haut": 1057.77,
+  "m_carre": 80,
+  "chambre": 3,
+  "salle_de_bain": 1,
+  "categorie": "Maison",
+  "type": "T4",
+  "equipements": [1, 2]
+}
+
+### ADMIN | RÉCUPÉRATION DE TOUS LES LOGEMENTS
+GET {{host}}/logements
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5NzE5MTU0LCJleHAiOjE3MDk4MDU1NTR9.gHQgKWrkBhG8SwkdlDQfFtdjWaoId5MCmsR4J-RJs6Y
+Content-Type: application/json
+
+### ADMIN | RÉCUPÉRATION D'UN LOGEMENT
+GET {{host}}/logements/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5NzE5MTU0LCJleHAiOjE3MDk4MDU1NTR9.gHQgKWrkBhG8SwkdlDQfFtdjWaoId5MCmsR4J-RJs6Y
+Content-Type: application/json
+
+### ADMIN | MODIFICATION D'UN LOGEMENT
+PUT {{host}}/logements/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5NzE5MTU0LCJleHAiOjE3MDk4MDU1NTR9.gHQgKWrkBhG8SwkdlDQfFtdjWaoId5MCmsR4J-RJs6Y
+Content-Type: application/json
+
+{
+  "name": "Le Centre"
+}
+
+### ADMIN | SUPPRESSION D'UN LOGEMENT
+DELETE {{host}}/logements/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5NzE5MTU0LCJleHAiOjE3MDk4MDU1NTR9.gHQgKWrkBhG8SwkdlDQfFtdjWaoId5MCmsR4J-RJs6Y
+Content-Type: application/json
+
