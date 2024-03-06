@@ -1,4 +1,3 @@
-/* Dans votre fichier produit.module.css */
 .produitContainer {
   display: flex; /* Utilise flexbox */
   align-items: center; /* Centre les éléments verticalement */
@@ -14,22 +13,22 @@
   margin-right: 20px; /* Espacement entre le texte/bouton et l'image, si nécessaire */
 }
 
-.texte {
-  /* Ajustement pour l'espacement, si vous avez besoin d'espace spécifique autour du texte ou entre le texte et le bouton */
-}
-
 .imageContainer {
-  /* Si vous décidez de garder l'image à droite et de contrôler sa taille, vous pouvez ajuster ici. Sinon, retirez ou ajustez cette partie selon les besoins actuels. */
   flex: 1; /* Permet à l'image de prendre l'espace nécessaire */
 }
 
 .placeholder {
   width: 300px; /* Largeur souhaitée */
   height: 300px; /* Hauteur souhaitée */
-  background-color: #ccc; /* Maintien de la couleur de fond gris pour le placeholder */
+  background-color: #bbb; /* Couleur de fond légèrement différente pour le placeholder */
 }
 
 .button {
-  cursor: pointer; /* Changez 'auto' en 'pointer' pour indiquer qu'il s'agit d'un bouton cliquable */
+  cursor: pointer; /* Indique qu'il s'agit d'un bouton cliquable */
   margin-top: 20px; /* Ajoute un espace au-dessus du bouton, ajustez selon les besoins */
+  padding: 10px 20px; /* Ajoute un peu de padding autour du texte du bouton */
+  background-color: #008cba; /* Couleur de fond pour le bouton */
+  color: white; /* Couleur du texte pour le bouton */
+  border: none; /* Retire la bordure du bouton */
+  border-radius: 5px; /* Ajoute un peu d'arrondi aux angles du bouton */
 }
