@@ -1,7 +1,39 @@
+import { useState } from 'react';
 import { FormulaireRecherche } from './formulaires/formulaireRecherche';
 import style from './recherche.module.css';
 
 export const Recherche = () => {
+    
+    const [equipementChecked, setEquipementChecked] = useState({
+        equipement1: false,
+        equipement2: false,
+        equipement3: false,
+        equipement4: false,
+    });
+
+    const [categorieChecked, setCategorieChecked] = useState({
+        categorie1: false,
+        categorie2: false,
+        categorie3: false,
+        categorie4: false,
+    });
+
+    const handleEquipementChange = (event) => {
+        const { id, checked } = event.target;
+        setEquipementChecked(prevState => ({
+            ...prevState,
+            [id]: checked
+        }));
+    };
+    
+    const handleCategorieChange = (event) => {
+        const { id, checked } = event.target;
+        setCategorieChecked(prevState => ({
+            ...prevState,
+            [id]: checked
+        }));
+    };
+
     return (
         <>
             <section className={style.recherche}>
@@ -11,16 +43,64 @@ export const Recherche = () => {
             <section className={style.main}>
                 <div className={style.critere}>
                     <h2>Prix</h2>
+
                     <h2>Équipements</h2>
-                    <p>equipement 1</p>
-                    <p>equipement 2</p>
-                    <p>equipement 3</p>
-                    <p>equipement 4</p>
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement1" checked={equipementChecked.equipement1} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 1</p>
+                    </div>
+                    
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement2" checked={equipementChecked.equipement2} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 2</p>
+                    </div>
+                    
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement3" checked={equipementChecked.equipement3} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 3</p>
+                    </div>
+
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement4" checked={equipementChecked.equipement4} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 4</p>
+                    </div>
+
                     <h2>Catégories</h2>
-                    <p>categorie 1</p>
-                    <p>categorie 2</p>
-                    <p>categorie 3</p>
-                    <p>categorie 4</p>
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="categorie1" checked={categorieChecked.categorie1} onChange={handleCategorieChange} />
+                        </div>
+                        <p>categorie 1</p>
+                    </div>
+                    
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="categorie2" checked={categorieChecked.categorie2} onChange={handleCategorieChange} />
+                        </div>
+                        <p>categorie 2</p>
+                    </div>
+                    
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="categorie3" checked={categorieChecked.categorie3} onChange={handleCategorieChange} />
+                        </div>
+                        <p>categorie 3</p>
+                    </div>
+                    
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="categorie4" checked={categorieChecked.categorie4} onChange={handleCategorieChange} />
+                        </div>
+                        <p>categorie 4</p>
+                    </div>
                 </div>
 
                 <div className={style.resultat}>

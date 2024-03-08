@@ -7,6 +7,40 @@
     flex-direction: column;
 }
 
+.squaredFour {
+    width: 20px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.squaredFour label {
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    background: #fcfcfc;
+    border: 1px solid #ccc;
+}
+
+.squaredFour label:after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 5px;
+    width: 6px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.squaredFour input[type="checkbox"]:checked + label:after {
+    display: block;
+}
+
 .contenueResult {
     overflow: hidden;
     height: 150px;
@@ -18,7 +52,8 @@
 }
 
 .main, 
-.contenueResult{
+.contenueResult,
+.choix{
     flex-direction: row;
 }
 
@@ -28,7 +63,7 @@
 }
 
 .critere, .resultat, 
-.main, .contenueResult{
+.main, .contenueResult, .choix{
     display: flex;
 }
 
