@@ -1,14 +1,18 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
-// Middleware to parse JSON bodies
+
+app.use(cors());
+
+
 app.use(express.json());
 app.use('/src/uploads', express.static('src/uploads'));
 app.get('/', (req, res) => {
     res.send('Hello world');
 });
 
-// Register the logements router
+
 app.use('/', require('./routes/Routes'));
 
 module.exports = app;
