@@ -1,8 +1,8 @@
-const app = require('../src/app');
-const database = require('../src/database');
 const supertest = require('supertest');
+const app = require('../src/app'); 
+const database = require('../src/database'); 
 
-describe('Logements tests', () => {
+describe('Equipment tests', () => {
 
     beforeAll(async () => {
         // INIT
@@ -10,23 +10,41 @@ describe('Logements tests', () => {
         await database.sync({ force: true });
     });
 
-    it('Should create a new logement', async () => {
-        const newLogement = {
-            secteur: 'Test Secteur',
-            // Ajoutez ici les autres propriétés du logement
+    it('Should create a new equipment', async () => {
+        const newEquipment = {
+            name: 'TestEquipment',
         };
 
         const response = await supertest(app)
-            .post('/logements')
-            .send(newLogement);
+            .post('/equipements')
+            .send(newEquipment);
 
-        expect(response.statusCode).toBe(200); // Change this to the status code your API returns
-        expect(response.body.secteur).toBe(newLogement.secteur); // Change this to the value your API returns
-        // Ajoutez ici d'autres vérifications pour les autres propriétés du logement
-    }, 10000);
+        expect(response.statusCode).toBe(200);
+        expect(response.body.name).toBe(newEquipment.name);
+    });
+
+    it('Should delete the created equipment', async () => {
+        const newEquipment = {
+            name: 'TestEquipmentToDelete',
+        };
+
+        // Create a new equipment
+        let response = await supertest(app)
+            .post('/equipements')
+            .send(newEquipment);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.name).toBe(newEquipment.name);
+
+        // Delete the created equipment
+        response = await supertest(app)
+            .delete(`/equipements/${response.body.id}`);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.message).toBe('Équipement supprimé');
+    });
 
     afterAll(async () => {
-        // CLEANUP
         await database.close();
     });
 

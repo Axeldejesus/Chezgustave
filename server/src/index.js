@@ -11,7 +11,7 @@ require('./models/associations');
 database.authenticate().then(() => {
     console.log('Connected to database!');
     // Appelez sync après avoir importé vos modèles et vos associations
-    database.sync({ force: true });
+    database.sync();
 });
 
 app.listen(process.env.PORT || 3630, () => {
