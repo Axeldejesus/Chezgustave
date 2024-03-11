@@ -293,60 +293,44 @@ router.get('/logements/:id', async (req, res) => {
 
 // Mettre à jour un logement spécifique
 router.put('/logements/:id', upload.any(), async (req, res) => {
-  console.log('Received PUT request for logement:', req.params.id);
   const transaction = await database.transaction();
   try {
-    const logement = await Logement.findByPk(req.params.id, { transaction });
-    if (logement) {
-      console.log('Found logement:', logement);
+      const logement = await Logement.findByPk(req.params.id, { transaction });
+      if (logement) {
+          if (req.files && req.files.length > 0) {
+              logement.images.forEach(image => {
+                  const imagePath = path.join(__dirname, '..', 'uploads', path.basename(image));
+                  if (fs.existsSync(imagePath)) {
+                      fs.unlinkSync(imagePath);
+                  }
+              });
 
-      
-      if (req.files && req.files.length > 0) {
-       
-        logement.images.forEach(image => {
-          const imagePath = path.join(__dirname, '..', 'uploads', path.basename(image));
-          if (fs.existsSync(imagePath)) {
-            fs.unlinkSync(imagePath);
+              const newImages = req.files.map((file, index) => {
+                  const oldPath = file.path;
+                  const newPath = path.join(path.dirname(oldPath), req.body.secteur + '-' + "img" + index + path.extname(file.originalname));
+                  fs.renameSync(oldPath, newPath);
+                  return 'http://localhost:3630/' + newPath;
+              });
+              req.body.images = newImages;
           }
-        });
 
-        
-        const newImages = req.files.map((file, index) => {
-          const oldPath = file.path;
-          const newPath = path.join(path.dirname(oldPath), req.body.secteur + '-' + "img" + index + path.extname(file.originalname));
-          fs.renameSync(oldPath, newPath);
-          return 'http://localhost:3630/' + newPath;
-        });
-        req.body.images = newImages;
+          await logement.update(req.body, { transaction });
+
+          if (req.body.equipements) {
+              const newEquipments = await Promise.all(req.body.equipements.map(id => Equipment.findByPk(id, { transaction })));
+              await logement.setEquipment(newEquipments, { transaction });
+              await logement.reload({ include: Equipment });
+          }
+          await transaction.commit();
+          const result = await Logement.findByPk(logement.id, { include: Equipment });
+          res.json(result);
+      } else {
+          await transaction.rollback();
+          res.status(404).json({ message: 'Logement non trouvé' });
       }
-
-      await logement.update(req.body, { transaction });
-
-      if (req.body.equipements) {
-        console.log('Updating equipements for logement:', req.body.equipements);
-        
-        const newEquipments = await Promise.all(req.body.equipements.map(id => Equipment.findByPk(id, { transaction })));
-        console.log('New equipments:', newEquipments.map(e => e.id));
-        
-        await logement.setEquipment(newEquipments, { transaction });
-        console.log('Updated equipments for logement');
-        
-        await logement.reload({ include: Equipment });
-        console.log('Reloaded logement with new equipements');
-      }
-      await transaction.commit();
-      console.log('Transaction committed');
-      const result = await Logement.findByPk(logement.id, { include: Equipment });
-      res.json(result);
-    } else {
-      console.log('Logement not found:', req.params.id);
-      await transaction.rollback();
-      res.status(404).json({ message: 'Logement non trouvé' });
-    }
   } catch (e) {
-    console.log('Error:', e);
-    await transaction.rollback();
-    res.status(500).json({ error: e.message, stack: e.stack });
+      await transaction.rollback();
+      res.status(500).json({ error: e.message, stack: e.stack });
   }
 });
 
