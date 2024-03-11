@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { FormulaireRecherche } from './formulaires/formulaireRecherche';
 import style from './recherche.module.css';
+import RangeSlider from './range/rangeSlider.jsx';
 
 export const Recherche = () => {
-    
+    // eslint-disable-next-line no-unused-vars
+    const [prixRange, setPrixRange]= useState({min:0, max:1000});
+
     const [equipementChecked, setEquipementChecked] = useState({
         equipement1: false,
         equipement2: false,
@@ -17,6 +20,10 @@ export const Recherche = () => {
         categorie3: false,
         categorie4: false,
     });
+
+    const handlePrixChange = (value) => {
+        setPrixRange(value);
+    };
 
     const handleEquipementChange = (event) => {
         const { id, checked } = event.target;
@@ -43,6 +50,12 @@ export const Recherche = () => {
             <section className={style.main}>
                 <div className={style.critere}>
                     <h2>Prix</h2>
+
+                    <RangeSlider
+                      min={0}
+                      max={1000}
+                      onChange={handlePrixChange}
+                    />
 
                     <h2>Équipements</h2>
                     <div className={style.choix}>
