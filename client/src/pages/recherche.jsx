@@ -3,7 +3,17 @@ import { FormulaireRecherche } from './formulaires/formulaireRecherche';
 import style from './recherche.module.css';
 import RangeSlider from './range/rangeSlider.jsx';
 
+
+
 export const Recherche = () => {
+
+    fetch(`http://localhost:3630/equipements/${equipementsChecked.id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // Supprimez la partie body dans une requête GET
+    })
     // eslint-disable-next-line no-unused-vars
     const [prixRange, setPrixRange]= useState({min:0, max:1000});
 
