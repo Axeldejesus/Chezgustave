@@ -28,7 +28,7 @@ describe('Equipment tests', () => {
             name: 'TestEquipmentToDelete',
         };
 
-        // Create a new equipment
+        // Cree un nouvel equipement
         let response = await supertest(app)
             .post('/equipements')
             .send(newEquipment);
@@ -36,9 +36,14 @@ describe('Equipment tests', () => {
         expect(response.statusCode).toBe(200);
         expect(response.body.name).toBe(newEquipment.name);
 
-        // Delete the created equipment
+        // Supprime l'equipement
         response = await supertest(app)
             .delete(`/equipements/${response.body.id}`);
+        
+        // Get l'equipement pour verifier qu'il a bien ete supprime
+        response = await supertest(app)
+            .get(`/equipements/${response.body.id}`);
+
 
         expect(response.statusCode).toBe(200);
         expect(response.body.message).toBe('Équipement supprimé');
