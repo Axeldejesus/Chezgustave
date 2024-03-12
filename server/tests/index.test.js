@@ -1,8 +1,8 @@
-const app = require('../src/app');
-const database = require('../src/database');
 const supertest = require('supertest');
+const app = require('../src/app'); 
+const database = require('../src/database'); 
 
-describe('Tests', () => {
+describe('Equipment tests', () => {
 
     beforeAll(async () => {
         // INIT
@@ -10,15 +10,41 @@ describe('Tests', () => {
         await database.sync({ force: true });
     });
 
-    it('Example should work', async () => {
-        const helloWorld = await supertest(app).get('/');
+    it('Should create a new equipment', async () => {
+        const newEquipment = {
+            name: 'TestEquipment',
+        };
 
-        expect(helloWorld.statusCode).toBe(200);
-        expect(helloWorld.text).toBe('Hello world');
+        const response = await supertest(app)
+            .post('/equipements')
+            .send(newEquipment);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.name).toBe(newEquipment.name);
+    });
+
+    it('Should delete the created equipment', async () => {
+        const newEquipment = {
+            name: 'TestEquipmentToDelete',
+        };
+
+        // Create a new equipment
+        let response = await supertest(app)
+            .post('/equipements')
+            .send(newEquipment);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.name).toBe(newEquipment.name);
+
+        // Delete the created equipment
+        response = await supertest(app)
+            .delete(`/equipements/${response.body.id}`);
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.message).toBe('Équipement supprimé');
     });
 
     afterAll(async () => {
-        // CLEANUP
         await database.close();
     });
 

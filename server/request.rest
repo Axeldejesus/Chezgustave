@@ -1,0 +1,241 @@
+//Cree un logement
+POST http://localhost:3630/logements HTTP/1.1
+Content-Type: application/json
+
+{
+  
+  "secteur": "rome",
+  "description": "Un bel appartement en plein coeur de Paris",
+  "tarif_bas": 100.0,
+  "tarif_moyen": 150.0,
+  "tarif_haut": 200.0,
+  "m_carre": 50.0,
+  "chambre": 2,
+  "salle_de_bain": 1,
+  "categorie": "Appartement",
+  "type": "Location",
+  "equipements": [1,2]
+}
+
+// Recupere tous les logements
+###
+GET http://localhost:3630/logements HTTP/1.1
+Content-Type: application/json
+
+// Recuperer un logement specifique
+###
+GET http://localhost:3630/logements/5 HTTP/1.1
+Content-Type: application/json
+
+// Mettre a jour un logement
+###
+PUT http://localhost:3630/logements/15 HTTP/1.1
+Content-Type: application/json
+
+{
+  
+  "equipements": [1,2,3]
+}
+
+// Supprimer un logement specifique
+###
+DELETE http://localhost:3630/logements/12 HTTP/1.1
+Content-Type: application/json
+
+
+// Cree un equipement
+###
+POST http://localhost:3630/equipements HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Parc de jeux"
+}
+
+// Recupere tous les equipements
+###
+GET http://localhost:3630/equipements HTTP/1.1
+Content-Type: application/json
+
+
+// Recuperer un equipement specifique
+###
+GET http://localhost:3630/equipements/1 HTTP/1.1
+Content-Type: application/json
+
+
+
+// Mettre a jour un equipement
+###
+PUT http://localhost:3630/equipements/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "CUISINE"
+}
+
+
+// Supprimer un equipement specifique
+###
+DELETE http://localhost:3630/equipements/2 HTTP/1.1
+Content-Type: application/json
+
+
+
+// login 
+###
+POST http://localhost:3630/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "axelteixeiradejesus@gmail.com",
+  "password": "123456"
+}
+
+
+// cree un utilisateur
+###
+POST http://localhost:3630/users
+Content-Type: application/json
+
+{
+  "email": "Testgustave7@gmail.com",
+  "name": "Chauve",
+  "tel": "123456778",
+  "password": "123456",
+  "is_admin": false
+}
+
+// supprimer un utilisateur
+###
+DELETE http://localhost:3630/users/4 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer
+
+// Recupere tous les utilisateurs
+###
+GET http://localhost:3630/users HTTP/1.1
+Content-Type: application/json
+
+
+// Mise à jour d'un utilisateur
+###
+PUT http://localhost:3630/users/5 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Jesus",
+  "password": "123456789"
+  
+}
+
+// cree une note 
+###
+POST http://localhost:3630/ratings/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "rated": 3,
+  "text": "Super logement",
+  "logementId": 5,
+  "userId": 10,
+  "reservationId": 2
+}
+
+// Recupere tous les notes
+###
+GET http://localhost:3630/ratings HTTP/1.1
+Content-Type: application/json
+
+
+// Recuperer une note specifique
+###
+GET http://localhost:3630/ratings/1 HTTP/1.1
+Content-Type: application/json
+
+
+// Mettre a jour une note
+###
+PUT http://localhost:3630/ratings/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "rated": 3,
+  "text": "Super logement"
+}
+
+// Supprimer une note specifique
+###
+DELETE http://localhost:3630/ratings/4 HTTP/1.1
+Content-Type: application/json
+
+
+// récupérer les notes d'un utilisateur
+###
+GET http://localhost:3630/reservations/6/ratings HTTP/1.1
+Content-Type: application/json
+
+
+// cree une reservation
+###
+POST http://localhost:3630/reservations/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "start_date": "2021-12-10",
+  "end_date": "2021-12-20",
+  "chef_cuisine": true,
+  "visite": "2021-12-10",
+  "logementId": 5,
+  "userId": 10
+  
+}
+
+// Recupere toutes les reservations
+###
+GET http://localhost:3630/reservations HTTP/1.1
+Content-Type: application/json
+
+
+// Recuperer une reservation specifique
+###
+GET http://localhost:3630/reservations/1 HTTP/1.1
+Content-Type: application/json
+
+// Mettre a jour une reservation
+###
+PUT http://localhost:3630/reservations/2 HTTP/1.1
+Content-Type: application/json
+
+{
+  "start_date": "2021-12-10",
+  "end_date": "2021-12-20",
+  "chef_cuisine": true,
+  "visite": "2021-12-10",
+  "logementId": 5,
+  "userId": 10,
+  "ratingId": 2
+}
+
+// Supprimer une reservation specifique
+###
+DELETE http://localhost:3630/reservations/5 HTTP/1.1
+Content-Type: application/json
+
+
+# // Recupere toutes les reservations d'un utilisateur
+# ###
+# GET http://localhost:3630/reservations/count HTTP/1.1
+# Content-Type: application/json
+
+
+// Recuperer la reservation d'un utilisateur
+###
+GET http://localhost:3630/users/5/reservations HTTP/1.1
+Content-Type: application/json
+
+
+// Recupere les reservations d'un logement
+###
+GET http://localhost:3630/logements/1/reservations HTTP/1.1
+Content-Type: application/json
