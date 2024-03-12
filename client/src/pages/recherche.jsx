@@ -60,6 +60,13 @@ export const Recherche = () => {
                     <h2>Équipements</h2>
                     <div className={style.choix}>
                         <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement0" checked={equipementChecked.equipement0} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 0</p>
+                    </div>
+                    
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
                             <input type="checkbox" id="equipement1" checked={equipementChecked.equipement1} onChange={handleEquipementChange} />
                         </div>
                         <p>equipement 1</p>
@@ -71,7 +78,7 @@ export const Recherche = () => {
                         </div>
                         <p>equipement 2</p>
                     </div>
-                    
+
                     <div className={style.choix}>
                         <div className={style.squaredFour}>
                             <input type="checkbox" id="equipement3" checked={equipementChecked.equipement3} onChange={handleEquipementChange} />
@@ -98,6 +105,13 @@ export const Recherche = () => {
                             <input type="checkbox" id="equipement6" checked={equipementChecked.equipement6} onChange={handleEquipementChange} />
                         </div>
                         <p>equipement 6</p>
+                    </div>
+
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement7" checked={equipementChecked.equipement7} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 7</p>
                     </div>
 
                     <h2>Catégories</h2>
@@ -129,6 +143,14 @@ export const Recherche = () => {
                         <p>categorie 4</p>
                     </div>
                 </div>
+
+                <h2>Équipements</h2>
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement1" checked={equipementChecked.equipement1} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 1</p>
+                    </div>
 
                 <div className={style.resultat}>
                     <div className={style.contenueResult}>
