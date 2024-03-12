@@ -109,31 +109,27 @@ export const Profil = () => {
                         {/* Formulaire de commande */}
                         <form onSubmit={(e) => e.preventDefault()}>
                             <div className={style.formRow}>
-                                <label className={style.label} htmlFor="itemName">Nom de l'article :</label>
-                                <input className={style.input} type="text" id="itemName" name="itemName" defaultValue="" />
-                                <br/>
-                                <br/>
+                                <div className={style.column}>
+                                    <label className={style.label} htmlFor="itemName">Nom de l'article :</label>
+                                    <input className={style.input} type="text" id="itemName" name="itemName" defaultValue="" />
+                                </div>
+                                <div className={style.column}>
+                                    <label className={style.label} htmlFor="quantity">Quantité :</label>
+                                    <input className={style.input} type="number" id="quantity" name="quantity" defaultValue="0" />
+                                </div>
                             </div>
-                            <div className={style.formRow}>
-                                <label className={style.label} htmlFor="quantity">Quantité :</label>
-                                <input className={style.input} type="number" id="quantity" name="quantity" defaultValue="0" />
-                                <br/>
-                                <br/>
-                            </div>
-                            <div className={style.formRow}>
+                            <div className={style.column}>
                                 <label className={style.label} htmlFor="address">Adresse de livraison :</label>
                                 <textarea className={style.input} id="address" name="address" defaultValue="" />
-                                <br/>
-                                <br/>
                             </div>
-                            <div className={style.formRow}>
+                            <div className={style.column}>
                                 <input className={style.submitButton} type="submit" value="Valider la commande" />
                             </div>
                         </form>
                     </div>
                 </div>
             )}
-
+            
             {showComplaintForm && (
                 <div className={style.overlay}>
                     <div className={style.formContainer}>
@@ -141,10 +137,10 @@ export const Profil = () => {
                         {/* Formulaire de réclamations */}
                         <form onSubmit={(e) => e.preventDefault()}>
                             <div className={style.formRow}>
-                                <label className={style.label} htmlFor="complaint">Description de la réclamation :</label>
-                                <textarea className={style.input} id="complaint" name="complaint" defaultValue="" />
-                                <br/>
-                                <br/>
+                                <div className={style.column}>
+                                    <label className={style.label} htmlFor="complaint">Description de la réclamation :</label>
+                                    <textarea className={style.input} id="complaint" name="complaint" defaultValue="" />
+                                </div>
                             </div>
                             <div className={style.formRow}>
                                 <input className={style.submitButton} type="submit" value="Soumettre la réclamation" />
@@ -153,6 +149,7 @@ export const Profil = () => {
                     </div>
                 </div>
             )}
+            
         </div>
     );
 };
