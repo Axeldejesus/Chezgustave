@@ -86,6 +86,20 @@ export const Recherche = () => {
                         <p>equipement 4</p>
                     </div>
 
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement4" checked={equipementChecked.equipement4} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 5</p>
+                    </div>
+
+                    <div className={style.choix}>
+                        <div className={style.squaredFour}>
+                            <input type="checkbox" id="equipement4" checked={equipementChecked.equipement4} onChange={handleEquipementChange} />
+                        </div>
+                        <p>equipement 6</p>
+                    </div>
+
                     <h2>Catégories</h2>
                     <div className={style.choix}>
                         <div className={style.squaredFour}>
