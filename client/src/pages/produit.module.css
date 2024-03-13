@@ -32,8 +32,24 @@
   cursor: pointer; /* Indique qu'il s'agit d'un bouton cliquable */
   margin-top: 20px; /* Ajoute un espace au-dessus du bouton, ajustez selon les besoins */
   padding: 10px 20px; /* Ajoute un peu de padding autour du texte du bouton */
-  background-color: #008cba; /* Couleur de fond pour le bouton */
-  color: white; /* Couleur du texte pour le bouton */
+  background-color: white; /* Couleur de fond pour le bouton */
+  color: black; /* Couleur du texte pour le bouton */
   border: none; /* Retire la bordure du bouton */
-  border-radius: 5px; /* Ajoute un peu d'arrondi aux angles du bouton */
+  border-radius: 10px; /* Ajoute un peu d'arrondi aux angles du bouton */
+  width: 100px;
+}
+
+.texte {
+  width: 500px;
+}
+@media (min-width: 768px) {
+  select,
+  input {
+      width: 30vw;
+  }
+
+  label span,
+  .separator {
+      right: 10% !important;
+  }
 }

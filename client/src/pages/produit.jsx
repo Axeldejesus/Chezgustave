@@ -6,7 +6,8 @@ export const Produit = () => {
     <div className={style.produitContainer}>
       <div className={style.texteEtBouton}>
         <div className={style.texte}>
-          <h1>Belle maison sur la côte Saint-Malo, Bretagne, France</h1>
+          <h1>Belle maison sur la côte</h1> 
+          <h4 className='texte'>Saint-Malo, Bretagne, France</h4> 
           <br/>
           <br/>
           <h4>Ceci est une superbe zone de texte pour descriptifs de l'annonce et tout.</h4>
