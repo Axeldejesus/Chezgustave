@@ -1,7 +1,27 @@
+import { useState } from 'react';
 import style from './accueil.module.css';
 import { FormulaireRecherche } from './formulaires/formulaireRecherche';
 
 export const Accueil=()=>{
+    const [, setLogements] = useState([]); // Définir logements avec useState
+
+    const handleFormSubmit = (secteur) => {
+        fetch(`http://localhost:3630/logements?secteur=${secteur}`)
+            .then(reponse => {
+                if (!reponse.ok) {
+                    throw new Error('Erreur lors de la récupération des données');
+                }
+                return reponse.json();
+            })
+            .then(data => {
+                setLogements(data); // Définir les logements une fois récupérés
+                window.location.href = `/recherche?logements=${encodeURIComponent(JSON.stringify(data))}`;
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des logements:', error);
+            });
+    }
+
     return(
         <>
             <section className={style.entete}>
@@ -11,7 +31,7 @@ export const Accueil=()=>{
                 </div>
             </section>
 
-            <FormulaireRecherche/>
+            <FormulaireRecherche onSubmit={handleFormSubmit}/>
 
             <h2 className={style.h2}>Voyagez en france</h2>
             <span>Pourqui pas ici</span>

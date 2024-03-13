@@ -1,12 +1,25 @@
+import { useState } from 'react';
 import style from './formulaireRecherche.module.css';
 
-export const FormulaireRecherche=()=>{
+// eslint-disable-next-line react/prop-types
+export const FormulaireRecherche=({ onSubmit })=>{
+
+    const [secteur, setSecteur] = useState(''); // État pour stocker le nom du secteur
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        onSubmit(secteur);
+    }
+
+    const handleSecteurChange = (event) => {
+        setSecteur(event.target.value);
+    }
 
     return(
-        <form className={style.from} action="" method="get">
+        <form className={style.from} onSubmit={handleFormSubmit}>
             <div className={style.champ}>
                 <label htmlFor="localisation">Où allez vous?</label>
-                <input type="text" defaultValue="localisation"/>
+                <input type="text" value={secteur} onChange={handleSecteurChange}/>
             </div>
 
             <div className={style.champ}>
@@ -34,7 +47,7 @@ export const FormulaireRecherche=()=>{
                 <input type="number" defaultValue="nbChambre" min="0" max="10"/>
             </div>
 
-            <input className={style.inputButton} type="submit" value="Rechercher"/>
+            <input className={style.inputButton} type="submit" value="Rechercher" />
         </form>
     )
 }
