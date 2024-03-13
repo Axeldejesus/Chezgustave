@@ -105,7 +105,7 @@ Content-Type: application/json
 
 ### ADMIN | RÉCUPÉRATION DE TOUS LES LOGEMENTS
 GET {{host}}/logements
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5NzE5MTU0LCJleHAiOjE3MDk4MDU1NTR9.gHQgKWrkBhG8SwkdlDQfFtdjWaoId5MCmsR4J-RJs6Y
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzEwMjM2NzA3LCJleHAiOjE3MTAzMjMxMDd9.RU5IRHsLWovcnFgBMpVUoiHIdMtRqdl6F4arSopuxAs
 Content-Type: application/json
 
 ### ADMIN | RÉCUPÉRATION D'UN LOGEMENT
@@ -127,3 +127,80 @@ DELETE {{host}}/logements/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5NzE5MTU0LCJleHAiOjE3MDk4MDU1NTR9.gHQgKWrkBhG8SwkdlDQfFtdjWaoId5MCmsR4J-RJs6Y
 Content-Type: application/json
 
+### ADMIN | CRÉATION D'UNE RÉSERVATION
+POST {{host}}/reservations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5OTAzMDEzLCJleHAiOjE3MDk5ODk0MTN9.VdlvreykK0IzznQ8-khdzHTRbkqIVb5UTaxHL47aL2s
+Content-Type: application/json
+
+{
+  "start_date": "2024-05-24",
+  "end_date": "2024-06-14",
+  "chef_cuisine": true,
+  "visite": "2024-04-25",
+  "logement_id": "3",
+  "user_id": "3",
+  "rating_id": null
+}
+
+### ADMIN | RÉCUPÉRATION DE TOUTES LES RÉSERVATIONS
+GET {{host}}/reservations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5OTAzMDEzLCJleHAiOjE3MDk5ODk0MTN9.VdlvreykK0IzznQ8-khdzHTRbkqIVb5UTaxHL47aL2s
+Content-Type: application/json
+
+### ADMIN | RÉCUPÉRATION D'UN LOGEMENT
+GET {{host}}/reservations/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5OTAzMDEzLCJleHAiOjE3MDk5ODk0MTN9.VdlvreykK0IzznQ8-khdzHTRbkqIVb5UTaxHL47aL2s
+Content-Type: application/json
+
+### ADMIN | MISE À JOUR D'UN LOGEMENT
+PUT {{host}}/reservations/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzEwMjM2NzA3LCJleHAiOjE3MTAzMjMxMDd9.RU5IRHsLWovcnFgBMpVUoiHIdMtRqdl6F4arSopuxAs
+Content-Type: application/json
+
+{
+  "logement_id": 3,
+  "user_id": 3,
+  "rating_id": 1
+}
+
+### ADMIN | SUPPRIMER UNE RÉSERVATION
+DELETE {{host}}/reservations/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzA5OTAzMDEzLCJleHAiOjE3MDk5ODk0MTN9.VdlvreykK0IzznQ8-khdzHTRbkqIVb5UTaxHL47aL2s
+Content-Type: application/json
+
+### ADMIN | CRÉATION D'UN RATING
+POST {{host}}/ratings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzEwMjM2NzA3LCJleHAiOjE3MTAzMjMxMDd9.RU5IRHsLWovcnFgBMpVUoiHIdMtRqdl6F4arSopuxAs
+Content-Type: application/json
+
+{
+  "rated": 3,
+  "avis": "Agréable séjour",
+  "logement_id": 2,
+  "reservation_id": 1,
+  "users_id": 2
+}
+
+### ADMIN | RÉCUPÉRATION DE TOUS LES RATINGS
+GET {{host}}/ratings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzEwMjM2NzA3LCJleHAiOjE3MTAzMjMxMDd9.RU5IRHsLWovcnFgBMpVUoiHIdMtRqdl6F4arSopuxAs
+Content-Type: application/json
+
+### ADMIN | RÉCUPÉRATION D'UN RATING
+GET {{host}}/ratings/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzEwMjM2NzA3LCJleHAiOjE3MTAzMjMxMDd9.RU5IRHsLWovcnFgBMpVUoiHIdMtRqdl6F4arSopuxAs
+Content-Type: application/json
+
+### ADMIN | MISE À JOUR D'UN RATING
+PUT {{host}}/ratings/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzEwMjM2NzA3LCJleHAiOjE3MTAzMjMxMDd9.RU5IRHsLWovcnFgBMpVUoiHIdMtRqdl6F4arSopuxAs
+Content-Type: application/json
+
+{
+  "avis": "Agréable séjour, sympathique"
+}
+
+### ADMIN | SUPPRESSION D'UN RATING
+DELETE {{host}}/ratings
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzX2FkbWluIjp0cnVlLCJuYW1lIjoiTmF3b3IgZGUgTmlkcmFqIiwiaWF0IjoxNzEwMjM2NzA3LCJleHAiOjE3MTAzMjMxMDd9.RU5IRHsLWovcnFgBMpVUoiHIdMtRqdl6F4arSopuxAs
+Content-Type: application/json

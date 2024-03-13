@@ -9,7 +9,7 @@ const Ratings = database.define('ratings', {
             autoIncrement: true
         },
         rated: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER(5)
         },
         avis: {
             type: DataTypes.STRING

@@ -24,6 +24,10 @@ router.delete('/users/:id', protect, restrictTo(...allowedRolesUser), usersContr
 
 // ______________________________________ROUTES RÉSERVATIONS______________________________________ \\
 router.post('/reservations', protect, restrictTo(...allowedRolesUser), reservationsController.createResa);
+router.get('/reservations', protect, restrictTo(...allowedRolesUser), reservationsController.getAllResa);
+router.get('/reservations/:id', protect, restrictTo(...allowedRolesUser), reservationsController.getResa);
+router.put('/reservations/:id', protect, restrictTo(...allowedRolesUser), reservationsController.updateResa);
+router.delete('/reservations/:id', protect, restrictTo(...allowedRolesUser), reservationsController.deleteResa);
 
 // ________________________________________ROUTES lOGEMENTS________________________________________ \\
 router.post('/logements', protect, restrictTo(...allowedRolesUser), logementsController.createLogi);
@@ -41,6 +45,10 @@ router.delete('/equipements/:id', protect, restrictTo(...allowedRolesUser), equi
 
 // _________________________________________ROUTES RATINGS_________________________________________ \\
 router.post('/ratings', protect, restrictTo(...allowedRolesUser), ratingsController.createRating);
+router.get('/ratings', protect, restrictTo(...allowedRolesUser), ratingsController.getAllRatings);
+router.get('/ratings', protect, restrictTo(...allowedRolesUser), ratingsController.getRating);
+router.put('/ratings/:id', protect, restrictTo(...allowedRolesUser), ratingsController.updateAvis);
+router.delete('/ratings/:id', protect, restrictTo(...allowedRolesUser), ratingsController.deleteRating);
 
 
 
