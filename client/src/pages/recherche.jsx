@@ -166,7 +166,7 @@ export const Recherche = () => {
                             <p>{logement.tarif_bas} €</p>
                             <p>{logement.tarif_moyen} €</p>
                             <p>{logement.tarif_haut} €</p>
-                            <img ref={logement.images} alt={logement.nom}/>
+                            <img className={style.img} src={logement.images} alt={logement.nom}/>
                             <p>{logement.description}</p>
                             {/* Autres détails du logement */}
                         </div>
