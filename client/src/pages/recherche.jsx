@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FormulaireRecherche } from './formulaires/formulaireRecherche';
+import { useLocation } from 'react-router-dom';
 import style from './recherche.module.css';
 import RangeSlider from './range/rangeSlider.jsx';
 
 export const Recherche = () => {
+    const location = useLocation();
+    const [logements, setLogements] = useState([]);
+
     // eslint-disable-next-line no-unused-vars
     const [prixRange, setPrixRange]= useState({min:0, max:1000});
 
@@ -20,6 +24,24 @@ export const Recherche = () => {
         categorie3: false,
         categorie4: false,
     });
+
+    // eslint-disable-next-line no-unused-vars
+    const handleFormSubmit= (secteur)=>{
+        fetch(`http://localhost:3630/logements?secteur=${secteur}`)
+        .then(reponse=>{
+            if(!reponse.ok){
+                throw new Error('Erreur lors de la récupération des données');
+            }
+            return reponse.json();
+        })
+        .then(data =>{
+            setLogements(data);
+        })
+        .catch(error=>{
+            console.error('Erreur lors de la récupération des logements:', error);
+        });
+    }
+    
 
     const handlePrixChange = (value) => {
         setPrixRange(value);
@@ -41,10 +63,18 @@ export const Recherche = () => {
         }));
     };
 
+    useEffect(() => {
+        const { secteur } = location.state
+        console.log(secteur)
+        fetch('http://localhost:3630/logements/secteur/'+secteur)
+        .then(res => res.json())
+        .then(data => setLogements(data))
+    }, [location]);
+
     return (
         <>
             <section className={style.recherche}>
-                <FormulaireRecherche />
+                <FormulaireRecherche setLogements={setLogements} />
             </section>
 
             <section className={style.main}>
@@ -131,7 +161,7 @@ export const Recherche = () => {
                 </div>
 
                 <div className={style.resultat}>
-                    <div className={style.contenueResult}>
+                    {/* <div className={style.contenueResult}>
                         <div className={style.leftResult}/>
                         <div className={style.rightResult}/>
                     </div>
@@ -142,7 +172,19 @@ export const Recherche = () => {
                     <div className={style.contenueResult}>
                         <div className={style.leftResult}/>
                         <div className={style.rightResult}/>
-                    </div>
+                    </div> */}
+                    {logements && logements.map(logement => (
+                        <div key={logement.id}>
+                            {/* Afficher les détails du logement */}
+                            <h2>{logement.nom}</h2>
+                            <p>Prix bas: {logement.tarif_bas} €</p>
+                            <p>Prix moyen: {logement.tarif_moyen} €</p>
+                            <p>Prix haut: {logement.tarif_haut} €</p>
+                            <img className={style.img} src={logement.images} alt={logement.nom}/>
+                            <p>{logement.description}</p>
+                            {/* Autres détails du logement */}
+                        </div>
+                    ))}
                 </div>
             </section>
         </>

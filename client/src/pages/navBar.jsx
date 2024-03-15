@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import style from './navBar.module.css';
+import { Link } from 'react-router-dom';
 
 export const NavBar=()=>{
 
@@ -28,11 +29,13 @@ export const NavBar=()=>{
 
     return(
         <nav className={style.nav}>
-            <img className={style.img} src='./public/logo.png' alt='log_chez_gustave'/>
+            <Link to ="/">
+                <img className={style.img} src='./public/logo.png' alt='log_chez_gustave'/>
+            </Link>
             
             <div className={style.bouton}>
                 <button className={style.connect}>Se Connecter</button>
-                <button className={style.recherche}>Rechercher</button>            
+                <button className={style.recherche}>Inscription</button>            
             </div>
 
             <div className={style.menu} onClick={toggleMenu} ref={menuRef}>
@@ -42,7 +45,7 @@ export const NavBar=()=>{
             {menuVisible && (
                 <div className={style.menuList}>
                     <a href='#'>Se connecter</a>
-                    <a href='#'>Rechercher</a>
+                    <a href='#'>Incription</a>
                 </div>
             )}
 

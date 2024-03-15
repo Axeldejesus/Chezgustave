@@ -2,6 +2,7 @@ import style from './accueil.module.css';
 import { FormulaireRecherche } from './formulaires/formulaireRecherche';
 
 export const Accueil=()=>{
+
     return(
         <>
             <section className={style.entete}>
@@ -11,7 +12,7 @@ export const Accueil=()=>{
                 </div>
             </section>
 
-            <FormulaireRecherche/>
+            <FormulaireRecherche />
 
             <h2 className={style.h2}>Voyagez en france</h2>
             <span>Pourqui pas ici</span>
