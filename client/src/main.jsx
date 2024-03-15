@@ -9,7 +9,6 @@ import { Produit } from './pages/produit';
 import { Profil } from './pages/profil';
 import { Recherche } from './pages/recherche';
 import { Accueil } from './pages/accueil';
-import {Presentationcolaborateur} from './pages/presentationcolaborateur';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -22,7 +21,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/produit' element={<Produit/>} />
         <Route path='/profil' element={<Profil/>} />
         <Route path='/recherche' element={<Recherche/>} />
-        <Route path='/presentationcolaborateur' element={<Presentationcolaborateur/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>
