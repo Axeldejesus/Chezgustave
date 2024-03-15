@@ -1,1 +1,9 @@
 /* Main CSS (should not be style for pages or components) */
+:root{
+    --var-color-gray:#D9D9D9;
+    --var-color-green: #155B55;
+    --var-color-yellow: #DDCA1D;
+    --var-color-black: #000000;
+    --var-color-red: #E02525;
+    --var-color-blue: #677FD6;
+}
