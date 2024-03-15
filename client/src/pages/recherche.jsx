@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, /*useEffect */} from 'react';
 import { FormulaireRecherche } from './formulaires/formulaireRecherche';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import style from './recherche.module.css';
 import RangeSlider from './range/rangeSlider.jsx';
 
 export const Recherche = () => {
-    const location = useLocation();
+    // const location = useLocation();
     const [logements, setLogements] = useState([]);
 
     // eslint-disable-next-line no-unused-vars
@@ -35,7 +35,7 @@ export const Recherche = () => {
             return reponse.json();
         })
         .then(data =>{
-            setLogements(data);
+            setLogements(data.secteur);
         })
         .catch(error=>{
             console.error('Erreur lors de la récupération des logements:', error);
@@ -63,14 +63,14 @@ export const Recherche = () => {
         }));
     };
 
-    useEffect(() => {
-        const searchParams = new URLSearchParams(location.search);
-        const logementsParam = searchParams.get('logements');
-        if (logementsParam) {
-            const decodedLogements = JSON.parse(decodeURIComponent(logementsParam));
-            setLogements(decodedLogements);
-        }
-    }, [location.search]);
+    // useEffect(() => {
+    //     const searchParams = new URLSearchParams(location.search);
+    //     const logementsParam = searchParams.get('logements');
+    //     if (logementsParam) {
+    //         const decodedLogements = JSON.parse(decodeURIComponent(logementsParam));
+    //         setLogements(decodedLogements);
+    //     }
+    // }, [location.search]);
 
     return (
         <>

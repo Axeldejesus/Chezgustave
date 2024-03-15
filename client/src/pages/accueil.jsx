@@ -14,8 +14,8 @@ export const Accueil=()=>{
                 return reponse.json();
             })
             .then(data => {
-                setLogements(data); // Définir les logements une fois récupérés
-                window.location.href = `/recherche?logements=${encodeURIComponent(JSON.stringify(data))}`;
+                setLogements(data.secteur); // Définir les logements une fois récupérés
+                window.location.href = `/recherche`;
             })
             .catch(error => {
                 console.error('Erreur lors de la récupération des logements:', error);
