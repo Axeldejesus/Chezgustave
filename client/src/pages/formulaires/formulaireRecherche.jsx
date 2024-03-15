@@ -1,14 +1,23 @@
 import { useState } from 'react';
 import style from './formulaireRecherche.module.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-export const FormulaireRecherche=({ onSubmit })=>{
+export const FormulaireRecherche=({ setLogements})=>{
 
+    const location = useLocation()
+    const navigate = useNavigate()
     const [secteur, setSecteur] = useState(''); // État pour stocker le nom du secteur
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        onSubmit(secteur);
+        if(location.pathname === '/') {
+            navigate('/recherche', { state: { secteur }})
+        } else {
+            fetch('http://localhost:3630/logements/secteur/'+secteur)
+        .then(res => res.json())
+        .then(data => setLogements(data))
+        }
     }
 
     const handleSecteurChange = (event) => {
