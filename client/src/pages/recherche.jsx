@@ -163,6 +163,10 @@ export const Recherche = () => {
                         <div key={logement.id}>
                             {/* Afficher les détails du logement */}
                             <h2>{logement.nom}</h2>
+                            <p>{logement.tarif_bas} €</p>
+                            <p>{logement.tarif_moyen} €</p>
+                            <p>{logement.tarif_haut} €</p>
+                            <img ref={logement.images} alt={logement.nom}/>
                             <p>{logement.description}</p>
                             {/* Autres détails du logement */}
                         </div>
