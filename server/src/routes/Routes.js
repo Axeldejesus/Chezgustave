@@ -13,6 +13,7 @@ const database = require('../database');
 const upload = require('../middlewares/imageMiddlewares');
 const fs = require('fs');
 const path = require('path');
+const { Op } = require('sequelize');
 
 
 // Connexion
@@ -593,6 +594,21 @@ router.post('/reservations', async (req, res) => {
         res.status(204).json({ message: 'Reservation deleted' });
       } else {
         res.status(404).json({ message: 'Reservation not found' });
+      }
+    } catch (e) {
+      res.status(500).json(e);
+    }
+  });
+
+  router.get('/logements/secteur/:secteur', async (req, res) => {
+    try {
+      const logement = await Logement.findAll({
+        where: { secteur: { [Op.iLike]: req.params.secteur } }
+      });
+      if (logement) {
+        res.json(logement);
+      } else {
+        res.status(404).json({ message: 'Logement not found' });
       }
     } catch (e) {
       res.status(500).json(e);
